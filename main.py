@@ -18,7 +18,7 @@ def get_stories(stories,offset=0, per_page=10):
 
 @app.route("/")
 def index():
-    return "POST APP"
+    return "Kite App Backend"
 
 
 @app.route("/story/")
@@ -28,15 +28,50 @@ def story():
         """
         query MyQuery {
             Stories {
-                userid
-                type
-                title
-                long
-                lat
-                id
-                duration
-                created_at
                 audio_url
+                created_at
+                duration
+                id
+                title
+                type
+                userid
+                Story_tags {
+                    story_id
+                    tag_id
+                    Tag {
+                    id
+                    value
+                    }
+                }
+                User {
+                    dob
+                    first
+                    gender
+                    id
+                    interestedin
+                    last
+                    lookingfor
+                    mobile
+                    photo
+                    discreet_mode
+                    Stories {
+                        audio_url
+                        created_at
+                        duration
+                        id
+                        title
+                        type
+                        userid
+                    }
+                    age
+                    agePref
+                    genderPref
+                    distancePref
+                    lat
+                    long
+                    lastSeen
+                    discreet_mode
+                }
             }
         }
         """
@@ -44,10 +79,9 @@ def story():
     result = client.execute(query)
 
     pagination_stories = get_stories(result["Stories"],offset=offset, per_page=per_page)
-
     pagination = Pagination(page=page, per_page=per_page, total=len(result["Stories"]),css_framework='bootstrap4')
 
     return jsonify({"story":pagination_stories,"pagination":pagination.links})
 
-if _name_ == "__main__":
+if __name__ == "__main__":
     app.run(debug=True)
