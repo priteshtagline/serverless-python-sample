@@ -64,6 +64,3 @@ Information about the service (stage, region, endpoints, functions):
 Run a specific function with a provided input and get the logs
 
 	sls invoke -f <function-name> -p event.json -l
-
-# Credits
-[JSONPlaceholder](https://jsonplaceholder.typicode.com) by [@typicode](https://github.com/typicode) is used for the posts backend.
