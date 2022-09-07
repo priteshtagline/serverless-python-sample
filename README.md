@@ -1,7 +1,6 @@
 # Serverless Python Sample
 [![serverless](http://public.serverless.com/badges/v3.svg)](http://www.serverless.com)
 
-A simple serverless python sample. The service is running on AWS Lambda using [Serverless Framework](https://github.com/serverless/serverless).
 
 The service has a dependency on external package (`requests`) and it exposes 2 REST API endpoints:
 
