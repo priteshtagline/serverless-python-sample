@@ -2,7 +2,7 @@ service: posts
 
 provider:
   name: aws
-  runtime: python2.7
+  runtime: python3.8
   memorySize: 128
 
 package:
