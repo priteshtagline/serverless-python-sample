@@ -1,0 +1,20 @@
+org: pritesh
+app: stories
+service: stories
+
+provider:
+  name: aws
+  runtime: python3.9
+  memorySize: 128
+
+functions:
+  listPosts:
+    handler: handler.list_stories
+    events:
+      - http:
+          path: story
+          method: get
+
+plugins:
+  - serverless-python-requirements
+  - serverless-dotenv-plugin
